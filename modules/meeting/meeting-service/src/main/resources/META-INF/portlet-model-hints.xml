@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.adjecti.meeting.model.Asset">
+		<field name="uuid" type="String" />
+		<field name="assetId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="assetModel" type="String" />
+		<field name="purchaseDate" type="String" />
+		<field name="serialNo" type="String" />
+		<field name="status" type="boolean" />
+		<field name="roomAssigned" type="boolean" />
+	</model>
+	<model name="com.adjecti.meeting.model.Employee">
+		<field name="uuid" type="String" />
+		<field name="employeeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="email" type="String" />
+		<field name="phoneNo" type="String" />
+		<field name="city" type="String" />
+	</model>
+	<model name="com.adjecti.meeting.model.Meeting">
+		<field name="uuid" type="String" />
+		<field name="meetingId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="title" type="String" />
+		<field name="dateAndTime" type="String" />
+		<field name="location" type="String" />
+		<field name="agenda" type="String" />
+		<field name="description" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="hostedBy" type="String" />
+		<field name="meetingType" type="String" />
+		<field name="meetingLink" type="String" />
+		<field name="meetingRoom" type="String" />
+	</model>
+</model-hints>

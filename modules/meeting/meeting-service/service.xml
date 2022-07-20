@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds"
+	package-path="com.adjecti.meeting">
+	<namespace>meeting</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" 
+		remote-service="false" session-factory="sampleSessionFactory" table="foo" 
+		tx-manager="sampleTransactionManager uuid="true""> -->
+	<entity local-service="true" name="Meeting"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="meetingId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="title" type="String" />
+		<column name="dateAndTime" type="String" />
+		<column name="location" type="String" />
+		<column name="agenda" type="String" />
+		<column name="description" type="String" />
+		<column name="createdBy" type="String" />
+		<column name="hostedBy" type="String" />
+		
+		<column name="meetingType" type="String" />		
+		
+		<column name="meetingLink" type="String" />
+		<column name="meetingRoom" type="String" />
+
+		<column name="assetsName" type="Collection" />
+		<column name="internalGuest" type="Collection" />
+		<column name="externalGuest" type="Collection" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="title" />
+			<order-column name="dateAndTime" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="title" return-type="Collection">
+			<finder-column name="title" />
+		</finder>
+
+		<finder name="location" return-type="Collection">
+			<finder-column name="location" />
+		</finder>
+
+		<finder name="createdBy" return-type="Collection">
+			<finder-column name="createdBy" />
+		</finder>
+
+		<finder name="hostedBy" return-type="Collection">
+			<finder-column name="hostedBy" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+
+	<!-- Assets -->
+
+	<entity local-service="true" name="Asset" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="assetId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="name" type="String" />
+		<column name="assetModel" type="String" />
+		<column name="purchaseDate" type="String" />
+		<column name="serialNo" type="String" />
+		<column name="status" type="boolean" />
+		<column name="roomAssigned" type="boolean" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="name" return-type="Collection">
+			<finder-column name="name" />
+		</finder>
+		<finder name="assetModel" return-type="Collection">
+			<finder-column name="assetModel" />
+		</finder>
+
+		<finder name="serialNo" return-type="String">
+			<finder-column name="serialNo" />
+		</finder>
+		
+		<finder name="roomAssigned" return-type="String">
+			<finder-column name="roomAssigned" />
+		</finder>
+
+		
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+
+
+	<entity local-service="true" name="Employee"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="employeeId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="name" type="String" />
+		<column name="email" type="String" />
+		<column name="phoneNo" type="String" />
+		<column name="city" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="name" return-type="Collection">
+			<finder-column name="name" />
+		</finder>
+		
+		<finder name="email" return-type="Collection">
+			<finder-column name="email" />
+		</finder>
+		<finder name="phoneNo" return-type="Collection">
+			<finder-column name="phoneNo" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+</service-builder>

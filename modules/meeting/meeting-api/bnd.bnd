@@ -1,0 +1,10 @@
+Bundle-Name: meeting-api
+Bundle-SymbolicName: com.adjecti.meeting.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.adjecti.meeting.exception,\
+	com.adjecti.meeting.model,\
+	com.adjecti.meeting.service,\
+	com.adjecti.meeting.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../meeting-service/service.xml
