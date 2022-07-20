@@ -59,6 +59,16 @@ public class AssetLocalServiceUtil {
 		return getService().addAsset(asset);
 	}
 
+	public static Asset addAsset(
+		String name, String assetModel, String purchaseDate, String serialNo,
+		boolean status, boolean roomAssigned,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+
+		return getService().addAsset(
+			name, assetModel, purchaseDate, serialNo, status, roomAssigned,
+			serviceContext);
+	}
+
 	/**
 	 * Creates a new asset with the primary key. Does not add the asset to the database.
 	 *
@@ -106,6 +116,10 @@ public class AssetLocalServiceUtil {
 	 */
 	public static Asset deleteAsset(long assetId) throws PortalException {
 		return getService().deleteAsset(assetId);
+	}
+
+	public static Asset deleteContact(long assetId) throws PortalException {
+		return getService().deleteContact(assetId);
 	}
 
 	/**
@@ -216,6 +230,10 @@ public class AssetLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Asset> getAllAsset() throws PortalException {
+		return getService().getAllAsset();
+	}
+
 	/**
 	 * Returns the asset with the primary key.
 	 *
@@ -296,6 +314,10 @@ public class AssetLocalServiceUtil {
 		return getService().getAssetsCount();
 	}
 
+	public static Asset getByAssetId(long assetId) throws PortalException {
+		return getService().getByAssetId(assetId);
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -341,6 +363,17 @@ public class AssetLocalServiceUtil {
 	 */
 	public static Asset updateAsset(Asset asset) {
 		return getService().updateAsset(asset);
+	}
+
+	public static Asset updateAsset(
+			long assetId, String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updateAsset(
+			assetId, name, assetModel, purchaseDate, serialNo, status,
+			roomAssigned, serviceContext);
 	}
 
 	public static AssetLocalService getService() {

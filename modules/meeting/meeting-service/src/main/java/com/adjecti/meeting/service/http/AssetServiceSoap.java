@@ -14,9 +14,16 @@
 
 package com.adjecti.meeting.service.http;
 
+import com.adjecti.meeting.service.AssetServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.adjecti.meeting.service.AssetServiceUtil</code> service
+ * <code>AssetServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,99 @@ package com.adjecti.meeting.service.http;
  */
 @Deprecated
 public class AssetServiceSoap {
+
+	public static com.adjecti.meeting.model.AssetSoap addAsset(
+			String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Asset returnValue =
+				AssetServiceUtil.addAsset(
+					name, assetModel, purchaseDate, serialNo, status,
+					roomAssigned, serviceContext);
+
+			return com.adjecti.meeting.model.AssetSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.AssetSoap updateAsset(
+			long assetId, String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Asset returnValue =
+				AssetServiceUtil.updateAsset(
+					assetId, name, assetModel, purchaseDate, serialNo, status,
+					roomAssigned, serviceContext);
+
+			return com.adjecti.meeting.model.AssetSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.AssetSoap deleteContact(
+			long assetId)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Asset returnValue =
+				AssetServiceUtil.deleteContact(assetId);
+
+			return com.adjecti.meeting.model.AssetSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.AssetSoap getByAssetId(long assetId)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Asset returnValue =
+				AssetServiceUtil.getByAssetId(assetId);
+
+			return com.adjecti.meeting.model.AssetSoap.toSoapModel(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.AssetSoap[] getAllAsset()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.meeting.model.Asset> returnValue =
+				AssetServiceUtil.getAllAsset();
+
+			return com.adjecti.meeting.model.AssetSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(AssetServiceSoap.class);
+
 }

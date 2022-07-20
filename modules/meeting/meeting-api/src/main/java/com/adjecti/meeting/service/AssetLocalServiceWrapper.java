@@ -47,6 +47,17 @@ public class AssetLocalServiceWrapper
 		return _assetLocalService.addAsset(asset);
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Asset addAsset(
+		String name, String assetModel, String purchaseDate, String serialNo,
+		boolean status, boolean roomAssigned,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+
+		return _assetLocalService.addAsset(
+			name, assetModel, purchaseDate, serialNo, status, roomAssigned,
+			serviceContext);
+	}
+
 	/**
 	 * Creates a new asset with the primary key. Does not add the asset to the database.
 	 *
@@ -102,6 +113,13 @@ public class AssetLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _assetLocalService.deleteAsset(assetId);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Asset deleteContact(long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetLocalService.deleteContact(assetId);
 	}
 
 	/**
@@ -230,6 +248,13 @@ public class AssetLocalServiceWrapper
 		return _assetLocalService.getActionableDynamicQuery();
 	}
 
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Asset> getAllAsset()
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetLocalService.getAllAsset();
+	}
+
 	/**
 	 * Returns the asset with the primary key.
 	 *
@@ -324,6 +349,13 @@ public class AssetLocalServiceWrapper
 	}
 
 	@Override
+	public com.adjecti.meeting.model.Asset getByAssetId(long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetLocalService.getByAssetId(assetId);
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -376,6 +408,18 @@ public class AssetLocalServiceWrapper
 		com.adjecti.meeting.model.Asset asset) {
 
 		return _assetLocalService.updateAsset(asset);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Asset updateAsset(
+			long assetId, String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetLocalService.updateAsset(
+			assetId, name, assetModel, purchaseDate, serialNo, status,
+			roomAssigned, serviceContext);
 	}
 
 	@Override
