@@ -14,9 +14,14 @@
 
 package com.adjecti.meeting.service.impl;
 
+import com.adjecti.meeting.model.Asset;
 import com.adjecti.meeting.service.base.AssetServiceBaseImpl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -42,9 +47,26 @@ import org.osgi.service.component.annotations.Component;
 )
 public class AssetServiceImpl extends AssetServiceBaseImpl {
 
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. Always use <code>com.adjecti.meeting.service.AssetServiceUtil</code> to access the asset remote service.
-	 */
+	public Asset addAsset(String name, String assetModel, String purchaseDate, String serialNo, boolean status,
+			boolean roomAssigned, ServiceContext serviceContext) {
+		return assetLocalService.addAsset(name, assetModel, purchaseDate, serialNo, status, roomAssigned, serviceContext);
+	}
+
+	public Asset updateAsset(long assetId, String name, String assetModel, String purchaseDate, String serialNo,
+			boolean status, boolean roomAssigned, ServiceContext serviceContext) throws PortalException {
+		return assetLocalService.updateAsset(assetId, name, assetModel, purchaseDate, serialNo, status, roomAssigned, serviceContext);
+
+	}
+
+	public Asset deleteContact(long assetId) throws PortalException {
+		return assetLocalService.deleteAsset(assetId);
+	}
+
+	public Asset getByAssetId(long assetId) throws PortalException {
+		return assetLocalService.getByAssetId(assetId);
+	}
+
+	public List<Asset> getAllAsset() throws PortalException {
+		return assetLocalService.getAllAsset();
+	}
 }

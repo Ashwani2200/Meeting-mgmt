@@ -30,6 +30,38 @@ public class AssetServiceWrapper
 		_assetService = assetService;
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Asset addAsset(
+		String name, String assetModel, String purchaseDate, String serialNo,
+		boolean status, boolean roomAssigned,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+
+		return _assetService.addAsset(
+			name, assetModel, purchaseDate, serialNo, status, roomAssigned,
+			serviceContext);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Asset deleteContact(long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetService.deleteContact(assetId);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Asset> getAllAsset()
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetService.getAllAsset();
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Asset getByAssetId(long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetService.getByAssetId(assetId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +70,18 @@ public class AssetServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _assetService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Asset updateAsset(
+			long assetId, String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assetService.updateAsset(
+			assetId, name, assetModel, purchaseDate, serialNo, status,
+			roomAssigned, serviceContext);
 	}
 
 	@Override

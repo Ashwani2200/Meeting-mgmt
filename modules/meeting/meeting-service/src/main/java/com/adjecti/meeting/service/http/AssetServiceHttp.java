@@ -14,13 +14,22 @@
 
 package com.adjecti.meeting.service.http;
 
+import com.adjecti.meeting.service.AssetServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.HttpPrincipal;
+import com.liferay.portal.kernel.service.http.TunnelUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
+
 /**
  * Provides the HTTP utility for the
- * <code>com.adjecti.meeting.service.AssetServiceUtil</code> service
+ * <code>AssetServiceUtil</code> service
  * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -42,4 +51,220 @@ package com.adjecti.meeting.service.http;
  * @generated
  */
 public class AssetServiceHttp {
+
+	public static com.adjecti.meeting.model.Asset addAsset(
+		HttpPrincipal httpPrincipal, String name, String assetModel,
+		String purchaseDate, String serialNo, boolean status,
+		boolean roomAssigned,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				AssetServiceUtil.class, "addAsset", _addAssetParameterTypes0);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, name, assetModel, purchaseDate, serialNo, status,
+				roomAssigned, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.adjecti.meeting.model.Asset)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.adjecti.meeting.model.Asset updateAsset(
+			HttpPrincipal httpPrincipal, long assetId, String name,
+			String assetModel, String purchaseDate, String serialNo,
+			boolean status, boolean roomAssigned,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				AssetServiceUtil.class, "updateAsset",
+				_updateAssetParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, assetId, name, assetModel, purchaseDate, serialNo,
+				status, roomAssigned, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.adjecti.meeting.model.Asset)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.adjecti.meeting.model.Asset deleteContact(
+			HttpPrincipal httpPrincipal, long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				AssetServiceUtil.class, "deleteContact",
+				_deleteContactParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, assetId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.adjecti.meeting.model.Asset)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.adjecti.meeting.model.Asset getByAssetId(
+			HttpPrincipal httpPrincipal, long assetId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				AssetServiceUtil.class, "getByAssetId",
+				_getByAssetIdParameterTypes3);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, assetId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.adjecti.meeting.model.Asset)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.adjecti.meeting.model.Asset> getAllAsset(
+			HttpPrincipal httpPrincipal)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				AssetServiceUtil.class, "getAllAsset",
+				_getAllAssetParameterTypes4);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.adjecti.meeting.model.Asset>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(AssetServiceHttp.class);
+
+	private static final Class<?>[] _addAssetParameterTypes0 = new Class[] {
+		String.class, String.class, String.class, String.class, boolean.class,
+		boolean.class, com.liferay.portal.kernel.service.ServiceContext.class
+	};
+	private static final Class<?>[] _updateAssetParameterTypes1 = new Class[] {
+		long.class, String.class, String.class, String.class, String.class,
+		boolean.class, boolean.class,
+		com.liferay.portal.kernel.service.ServiceContext.class
+	};
+	private static final Class<?>[] _deleteContactParameterTypes2 =
+		new Class[] {long.class};
+	private static final Class<?>[] _getByAssetIdParameterTypes3 = new Class[] {
+		long.class
+	};
+	private static final Class<?>[] _getAllAssetParameterTypes4 =
+		new Class[] {};
+
 }

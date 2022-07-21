@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -77,6 +78,10 @@ public interface AssetLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public Asset addAsset(Asset asset);
 
+	public Asset addAsset(
+		String name, String assetModel, String purchaseDate, String serialNo,
+		boolean status, boolean roomAssigned, ServiceContext serviceContext);
+
 	/**
 	 * Creates a new asset with the primary key. Does not add the asset to the database.
 	 *
@@ -118,6 +123,8 @@ public interface AssetLocalService
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	public Asset deleteAsset(long assetId) throws PortalException;
+
+	public Asset deleteContact(long assetId) throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -208,6 +215,9 @@ public interface AssetLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Asset> getAllAsset() throws PortalException;
+
 	/**
 	 * Returns the asset with the primary key.
 	 *
@@ -278,6 +288,9 @@ public interface AssetLocalService
 	public int getAssetsCount();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public Asset getByAssetId(long assetId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -311,5 +324,11 @@ public interface AssetLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Asset updateAsset(Asset asset);
+
+	public Asset updateAsset(
+			long assetId, String name, String assetModel, String purchaseDate,
+			String serialNo, boolean status, boolean roomAssigned,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 }
