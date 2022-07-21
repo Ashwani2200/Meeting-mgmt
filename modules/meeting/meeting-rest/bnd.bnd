@@ -1,0 +1,4 @@
+Bundle-Name: meeting-rest
+Bundle-SymbolicName: com.adjecti.meeting.rest
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration

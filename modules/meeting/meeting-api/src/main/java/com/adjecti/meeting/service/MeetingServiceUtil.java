@@ -14,6 +14,12 @@
 
 package com.adjecti.meeting.service;
 
+import com.adjecti.meeting.model.Meeting;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for Meeting. This utility wraps
  * <code>com.adjecti.meeting.service.impl.MeetingServiceImpl</code> and is an
@@ -33,14 +39,63 @@ public class MeetingServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.adjecti.meeting.service.impl.MeetingServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Meeting addMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return getService().addMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
+	}
+
+	public static Meeting deleteById(long meetingId) throws PortalException {
+		return getService().deleteById(meetingId);
+	}
+
+	public static List<Meeting> getAllMeeting() {
+		return getService().getAllMeeting();
+	}
+
+	public static Meeting getMeetingById(long meetingId)
+		throws PortalException {
+
+		return getService().getMeetingById(meetingId);
+	}
+
+	public static List<Meeting> getMeetingCreatedBy(String createdBy) {
+		return getService().getMeetingCreatedBy(createdBy);
+	}
+
+	public static List<Meeting> getMeetingHostedBy(String hostedBy) {
+		return getService().getMeetingHostedBy(hostedBy);
+	}
+
+	public static List<Meeting> getMeetingLocation(String location) {
+		return getService().getMeetingLocation(location);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static Meeting updateMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return getService().updateMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
 	}
 
 	public static MeetingService getService() {

@@ -41,9 +41,9 @@
 		<column name="meetingLink" type="String" />
 		<column name="meetingRoom" type="String" />
 
-		<column name="assetsName" type="Collection" />
-		<column name="internalGuest" type="Collection" />
-		<column name="externalGuest" type="Collection" />
+		<column name="assetsName" type="String"  />
+		<column name="internalGuest" type="String" />
+		<column name="externalGuest" type="String" />
 
 
 		<!-- Order -->

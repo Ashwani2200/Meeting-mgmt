@@ -47,6 +47,19 @@ public class MeetingLocalServiceWrapper
 		return _meetingLocalService.addMeeting(meeting);
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Meeting addMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return _meetingLocalService.addMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
+	}
+
 	/**
 	 * Creates a new meeting with the primary key. Does not add the meeting to the database.
 	 *
@@ -67,6 +80,13 @@ public class MeetingLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _meetingLocalService.createPersistedModel(primaryKeyObj);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Meeting deleteById(long meetingId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _meetingLocalService.deleteById(meetingId);
 	}
 
 	/**
@@ -231,6 +251,11 @@ public class MeetingLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getAllMeeting() {
+		return _meetingLocalService.getAllMeeting();
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -261,6 +286,13 @@ public class MeetingLocalServiceWrapper
 		return _meetingLocalService.getMeeting(meetingId);
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Meeting getMeetingById(long meetingId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _meetingLocalService.getMeetingById(meetingId);
+	}
+
 	/**
 	 * Returns the meeting matching the UUID and group.
 	 *
@@ -275,6 +307,27 @@ public class MeetingLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _meetingLocalService.getMeetingByUuidAndGroupId(uuid, groupId);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting>
+		getMeetingCreatedBy(String createdBy) {
+
+		return _meetingLocalService.getMeetingCreatedBy(createdBy);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getMeetingHostedBy(
+		String hostedBy) {
+
+		return _meetingLocalService.getMeetingHostedBy(hostedBy);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getMeetingLocation(
+		String location) {
+
+		return _meetingLocalService.getMeetingLocation(location);
 	}
 
 	/**
@@ -377,6 +430,19 @@ public class MeetingLocalServiceWrapper
 		com.adjecti.meeting.model.Meeting meeting) {
 
 		return _meetingLocalService.updateMeeting(meeting);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Meeting updateMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return _meetingLocalService.updateMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
 	}
 
 	@Override

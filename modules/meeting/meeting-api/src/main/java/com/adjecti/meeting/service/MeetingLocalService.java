@@ -77,6 +77,12 @@ public interface MeetingLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public Meeting addMeeting(Meeting meeting);
 
+	public Meeting addMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest);
+
 	/**
 	 * Creates a new meeting with the primary key. Does not add the meeting to the database.
 	 *
@@ -91,6 +97,8 @@ public interface MeetingLocalService
 	 */
 	public PersistedModel createPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
+
+	public Meeting deleteById(long meetingId) throws PortalException;
 
 	/**
 	 * Deletes the meeting with the primary key from the database. Also notifies the appropriate model listeners.
@@ -209,6 +217,9 @@ public interface MeetingLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Meeting> getAllMeeting();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
 
@@ -225,6 +236,9 @@ public interface MeetingLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Meeting getMeeting(long meetingId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public Meeting getMeetingById(long meetingId) throws PortalException;
+
 	/**
 	 * Returns the meeting matching the UUID and group.
 	 *
@@ -236,6 +250,15 @@ public interface MeetingLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Meeting getMeetingByUuidAndGroupId(String uuid, long groupId)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Meeting> getMeetingCreatedBy(String createdBy);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Meeting> getMeetingHostedBy(String hostedBy);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Meeting> getMeetingLocation(String location);
 
 	/**
 	 * Returns a range of all the meetings.
@@ -312,5 +335,11 @@ public interface MeetingLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Meeting updateMeeting(Meeting meeting);
+
+	public Meeting updateMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest);
 
 }

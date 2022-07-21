@@ -59,6 +59,18 @@ public class MeetingLocalServiceUtil {
 		return getService().addMeeting(meeting);
 	}
 
+	public static Meeting addMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return getService().addMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
+	}
+
 	/**
 	 * Creates a new meeting with the primary key. Does not add the meeting to the database.
 	 *
@@ -77,6 +89,10 @@ public class MeetingLocalServiceUtil {
 		throws PortalException {
 
 		return getService().createPersistedModel(primaryKeyObj);
+	}
+
+	public static Meeting deleteById(long meetingId) throws PortalException {
+		return getService().deleteById(meetingId);
 	}
 
 	/**
@@ -218,6 +234,10 @@ public class MeetingLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Meeting> getAllMeeting() {
+		return getService().getAllMeeting();
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -244,6 +264,12 @@ public class MeetingLocalServiceUtil {
 		return getService().getMeeting(meetingId);
 	}
 
+	public static Meeting getMeetingById(long meetingId)
+		throws PortalException {
+
+		return getService().getMeetingById(meetingId);
+	}
+
 	/**
 	 * Returns the meeting matching the UUID and group.
 	 *
@@ -256,6 +282,18 @@ public class MeetingLocalServiceUtil {
 		throws PortalException {
 
 		return getService().getMeetingByUuidAndGroupId(uuid, groupId);
+	}
+
+	public static List<Meeting> getMeetingCreatedBy(String createdBy) {
+		return getService().getMeetingCreatedBy(createdBy);
+	}
+
+	public static List<Meeting> getMeetingHostedBy(String hostedBy) {
+		return getService().getMeetingHostedBy(hostedBy);
+	}
+
+	public static List<Meeting> getMeetingLocation(String location) {
+		return getService().getMeetingLocation(location);
 	}
 
 	/**
@@ -343,6 +381,18 @@ public class MeetingLocalServiceUtil {
 	 */
 	public static Meeting updateMeeting(Meeting meeting) {
 		return getService().updateMeeting(meeting);
+	}
+
+	public static Meeting updateMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return getService().updateMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
 	}
 
 	public static MeetingLocalService getService() {

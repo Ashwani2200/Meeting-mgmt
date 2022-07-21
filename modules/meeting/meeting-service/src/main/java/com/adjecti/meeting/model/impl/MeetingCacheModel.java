@@ -61,7 +61,7 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -99,6 +99,12 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 		sb.append(meetingLink);
 		sb.append(", meetingRoom=");
 		sb.append(meetingRoom);
+		sb.append(", assetsName=");
+		sb.append(assetsName);
+		sb.append(", internalGuest=");
+		sb.append(internalGuest);
+		sb.append(", externalGuest=");
+		sb.append(externalGuest);
 		sb.append("}");
 
 		return sb.toString();
@@ -211,6 +217,27 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 			meetingImpl.setMeetingRoom(meetingRoom);
 		}
 
+		if (assetsName == null) {
+			meetingImpl.setAssetsName("");
+		}
+		else {
+			meetingImpl.setAssetsName(assetsName);
+		}
+
+		if (internalGuest == null) {
+			meetingImpl.setInternalGuest("");
+		}
+		else {
+			meetingImpl.setInternalGuest(internalGuest);
+		}
+
+		if (externalGuest == null) {
+			meetingImpl.setExternalGuest("");
+		}
+		else {
+			meetingImpl.setExternalGuest(externalGuest);
+		}
+
 		meetingImpl.resetOriginalValues();
 
 		return meetingImpl;
@@ -240,6 +267,9 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 		meetingType = objectInput.readUTF();
 		meetingLink = objectInput.readUTF();
 		meetingRoom = objectInput.readUTF();
+		assetsName = objectInput.readUTF();
+		internalGuest = objectInput.readUTF();
+		externalGuest = objectInput.readUTF();
 	}
 
 	@Override
@@ -338,6 +368,27 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 		else {
 			objectOutput.writeUTF(meetingRoom);
 		}
+
+		if (assetsName == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(assetsName);
+		}
+
+		if (internalGuest == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(internalGuest);
+		}
+
+		if (externalGuest == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(externalGuest);
+		}
 	}
 
 	public String uuid;
@@ -358,5 +409,8 @@ public class MeetingCacheModel implements CacheModel<Meeting>, Externalizable {
 	public String meetingType;
 	public String meetingLink;
 	public String meetingRoom;
+	public String assetsName;
+	public String internalGuest;
+	public String externalGuest;
 
 }

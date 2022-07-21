@@ -50,5 +50,8 @@
 		<field name="meetingType" type="String" />
 		<field name="meetingLink" type="String" />
 		<field name="meetingRoom" type="String" />
+		<field name="assetsName" type="String" />
+		<field name="internalGuest" type="String" />
+		<field name="externalGuest" type="String" />
 	</model>
 </model-hints>

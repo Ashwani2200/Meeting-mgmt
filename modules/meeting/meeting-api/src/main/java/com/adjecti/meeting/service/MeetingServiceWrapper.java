@@ -30,6 +30,59 @@ public class MeetingServiceWrapper
 		_meetingService = meetingService;
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Meeting addMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return _meetingService.addMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Meeting deleteById(long meetingId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _meetingService.deleteById(meetingId);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getAllMeeting() {
+		return _meetingService.getAllMeeting();
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Meeting getMeetingById(long meetingId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _meetingService.getMeetingById(meetingId);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting>
+		getMeetingCreatedBy(String createdBy) {
+
+		return _meetingService.getMeetingCreatedBy(createdBy);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getMeetingHostedBy(
+		String hostedBy) {
+
+		return _meetingService.getMeetingHostedBy(hostedBy);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.meeting.model.Meeting> getMeetingLocation(
+		String location) {
+
+		return _meetingService.getMeetingLocation(location);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -38,6 +91,19 @@ public class MeetingServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _meetingService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.adjecti.meeting.model.Meeting updateMeeting(
+		String title, String dateAndTime, String location, String agenda,
+		String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return _meetingService.updateMeeting(
+			title, dateAndTime, location, agenda, description, createdBy,
+			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
+			internalGuest, externalGuest);
 	}
 
 	@Override

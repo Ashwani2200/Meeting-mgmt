@@ -51,6 +51,9 @@ public class MeetingSoap implements Serializable {
 		soapModel.setMeetingType(model.getMeetingType());
 		soapModel.setMeetingLink(model.getMeetingLink());
 		soapModel.setMeetingRoom(model.getMeetingRoom());
+		soapModel.setAssetsName(model.getAssetsName());
+		soapModel.setInternalGuest(model.getInternalGuest());
+		soapModel.setExternalGuest(model.getExternalGuest());
 
 		return soapModel;
 	}
@@ -248,6 +251,30 @@ public class MeetingSoap implements Serializable {
 		_meetingRoom = meetingRoom;
 	}
 
+	public String getAssetsName() {
+		return _assetsName;
+	}
+
+	public void setAssetsName(String assetsName) {
+		_assetsName = assetsName;
+	}
+
+	public String getInternalGuest() {
+		return _internalGuest;
+	}
+
+	public void setInternalGuest(String internalGuest) {
+		_internalGuest = internalGuest;
+	}
+
+	public String getExternalGuest() {
+		return _externalGuest;
+	}
+
+	public void setExternalGuest(String externalGuest) {
+		_externalGuest = externalGuest;
+	}
+
 	private String _uuid;
 	private long _meetingId;
 	private long _groupId;
@@ -266,5 +293,8 @@ public class MeetingSoap implements Serializable {
 	private String _meetingType;
 	private String _meetingLink;
 	private String _meetingRoom;
+	private String _assetsName;
+	private String _internalGuest;
+	private String _externalGuest;
 
 }

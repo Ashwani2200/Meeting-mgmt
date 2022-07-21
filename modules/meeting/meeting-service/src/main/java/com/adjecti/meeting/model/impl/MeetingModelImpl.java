@@ -84,7 +84,9 @@ public class MeetingModelImpl
 		{"location", Types.VARCHAR}, {"agenda", Types.VARCHAR},
 		{"description", Types.VARCHAR}, {"createdBy", Types.VARCHAR},
 		{"hostedBy", Types.VARCHAR}, {"meetingType", Types.VARCHAR},
-		{"meetingLink", Types.VARCHAR}, {"meetingRoom", Types.VARCHAR}
+		{"meetingLink", Types.VARCHAR}, {"meetingRoom", Types.VARCHAR},
+		{"assetsName", Types.VARCHAR}, {"internalGuest", Types.VARCHAR},
+		{"externalGuest", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -109,10 +111,13 @@ public class MeetingModelImpl
 		TABLE_COLUMNS_MAP.put("meetingType", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("meetingLink", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("meetingRoom", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("assetsName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("internalGuest", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("externalGuest", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table meeting_Meeting (uuid_ VARCHAR(75) null,meetingId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,title VARCHAR(75) null,dateAndTime VARCHAR(75) null,location VARCHAR(75) null,agenda VARCHAR(75) null,description VARCHAR(75) null,createdBy VARCHAR(75) null,hostedBy VARCHAR(75) null,meetingType VARCHAR(75) null,meetingLink VARCHAR(75) null,meetingRoom VARCHAR(75) null)";
+		"create table meeting_Meeting (uuid_ VARCHAR(75) null,meetingId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,title VARCHAR(75) null,dateAndTime VARCHAR(75) null,location VARCHAR(75) null,agenda VARCHAR(75) null,description VARCHAR(75) null,createdBy VARCHAR(75) null,hostedBy VARCHAR(75) null,meetingType VARCHAR(75) null,meetingLink VARCHAR(75) null,meetingRoom VARCHAR(75) null,assetsName VARCHAR(75) null,internalGuest VARCHAR(75) null,externalGuest VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table meeting_Meeting";
 
@@ -224,6 +229,9 @@ public class MeetingModelImpl
 		model.setMeetingType(soapModel.getMeetingType());
 		model.setMeetingLink(soapModel.getMeetingLink());
 		model.setMeetingRoom(soapModel.getMeetingRoom());
+		model.setAssetsName(soapModel.getAssetsName());
+		model.setInternalGuest(soapModel.getInternalGuest());
+		model.setExternalGuest(soapModel.getExternalGuest());
 
 		return model;
 	}
@@ -432,6 +440,19 @@ public class MeetingModelImpl
 		attributeSetterBiConsumers.put(
 			"meetingRoom",
 			(BiConsumer<Meeting, String>)Meeting::setMeetingRoom);
+		attributeGetterFunctions.put("assetsName", Meeting::getAssetsName);
+		attributeSetterBiConsumers.put(
+			"assetsName", (BiConsumer<Meeting, String>)Meeting::setAssetsName);
+		attributeGetterFunctions.put(
+			"internalGuest", Meeting::getInternalGuest);
+		attributeSetterBiConsumers.put(
+			"internalGuest",
+			(BiConsumer<Meeting, String>)Meeting::setInternalGuest);
+		attributeGetterFunctions.put(
+			"externalGuest", Meeting::getExternalGuest);
+		attributeSetterBiConsumers.put(
+			"externalGuest",
+			(BiConsumer<Meeting, String>)Meeting::setExternalGuest);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -855,6 +876,66 @@ public class MeetingModelImpl
 		_meetingRoom = meetingRoom;
 	}
 
+	@JSON
+	@Override
+	public String getAssetsName() {
+		if (_assetsName == null) {
+			return "";
+		}
+		else {
+			return _assetsName;
+		}
+	}
+
+	@Override
+	public void setAssetsName(String assetsName) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_assetsName = assetsName;
+	}
+
+	@JSON
+	@Override
+	public String getInternalGuest() {
+		if (_internalGuest == null) {
+			return "";
+		}
+		else {
+			return _internalGuest;
+		}
+	}
+
+	@Override
+	public void setInternalGuest(String internalGuest) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_internalGuest = internalGuest;
+	}
+
+	@JSON
+	@Override
+	public String getExternalGuest() {
+		if (_externalGuest == null) {
+			return "";
+		}
+		else {
+			return _externalGuest;
+		}
+	}
+
+	@Override
+	public void setExternalGuest(String externalGuest) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_externalGuest = externalGuest;
+	}
+
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(
@@ -935,6 +1016,9 @@ public class MeetingModelImpl
 		meetingImpl.setMeetingType(getMeetingType());
 		meetingImpl.setMeetingLink(getMeetingLink());
 		meetingImpl.setMeetingRoom(getMeetingRoom());
+		meetingImpl.setAssetsName(getAssetsName());
+		meetingImpl.setInternalGuest(getInternalGuest());
+		meetingImpl.setExternalGuest(getExternalGuest());
 
 		meetingImpl.resetOriginalValues();
 
@@ -1140,6 +1224,30 @@ public class MeetingModelImpl
 			meetingCacheModel.meetingRoom = null;
 		}
 
+		meetingCacheModel.assetsName = getAssetsName();
+
+		String assetsName = meetingCacheModel.assetsName;
+
+		if ((assetsName != null) && (assetsName.length() == 0)) {
+			meetingCacheModel.assetsName = null;
+		}
+
+		meetingCacheModel.internalGuest = getInternalGuest();
+
+		String internalGuest = meetingCacheModel.internalGuest;
+
+		if ((internalGuest != null) && (internalGuest.length() == 0)) {
+			meetingCacheModel.internalGuest = null;
+		}
+
+		meetingCacheModel.externalGuest = getExternalGuest();
+
+		String externalGuest = meetingCacheModel.externalGuest;
+
+		if ((externalGuest != null) && (externalGuest.length() == 0)) {
+			meetingCacheModel.externalGuest = null;
+		}
+
 		return meetingCacheModel;
 	}
 
@@ -1232,6 +1340,9 @@ public class MeetingModelImpl
 	private String _meetingType;
 	private String _meetingLink;
 	private String _meetingRoom;
+	private String _assetsName;
+	private String _internalGuest;
+	private String _externalGuest;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);
@@ -1280,6 +1391,9 @@ public class MeetingModelImpl
 		_columnOriginalValues.put("meetingType", _meetingType);
 		_columnOriginalValues.put("meetingLink", _meetingLink);
 		_columnOriginalValues.put("meetingRoom", _meetingRoom);
+		_columnOriginalValues.put("assetsName", _assetsName);
+		_columnOriginalValues.put("internalGuest", _internalGuest);
+		_columnOriginalValues.put("externalGuest", _externalGuest);
 	}
 
 	private static final Map<String, String> _attributeNames;
@@ -1338,6 +1452,12 @@ public class MeetingModelImpl
 		columnBitmasks.put("meetingLink", 65536L);
 
 		columnBitmasks.put("meetingRoom", 131072L);
+
+		columnBitmasks.put("assetsName", 262144L);
+
+		columnBitmasks.put("internalGuest", 524288L);
+
+		columnBitmasks.put("externalGuest", 1048576L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

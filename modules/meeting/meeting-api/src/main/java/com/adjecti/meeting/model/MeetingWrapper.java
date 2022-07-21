@@ -61,6 +61,9 @@ public class MeetingWrapper
 		attributes.put("meetingType", getMeetingType());
 		attributes.put("meetingLink", getMeetingLink());
 		attributes.put("meetingRoom", getMeetingRoom());
+		attributes.put("assetsName", getAssetsName());
+		attributes.put("internalGuest", getInternalGuest());
+		attributes.put("externalGuest", getExternalGuest());
 
 		return attributes;
 	}
@@ -174,6 +177,24 @@ public class MeetingWrapper
 		if (meetingRoom != null) {
 			setMeetingRoom(meetingRoom);
 		}
+
+		String assetsName = (String)attributes.get("assetsName");
+
+		if (assetsName != null) {
+			setAssetsName(assetsName);
+		}
+
+		String internalGuest = (String)attributes.get("internalGuest");
+
+		if (internalGuest != null) {
+			setInternalGuest(internalGuest);
+		}
+
+		String externalGuest = (String)attributes.get("externalGuest");
+
+		if (externalGuest != null) {
+			setExternalGuest(externalGuest);
+		}
 	}
 
 	/**
@@ -184,6 +205,16 @@ public class MeetingWrapper
 	@Override
 	public String getAgenda() {
 		return model.getAgenda();
+	}
+
+	/**
+	 * Returns the assets name of this meeting.
+	 *
+	 * @return the assets name of this meeting
+	 */
+	@Override
+	public String getAssetsName() {
+		return model.getAssetsName();
 	}
 
 	/**
@@ -237,6 +268,16 @@ public class MeetingWrapper
 	}
 
 	/**
+	 * Returns the external guest of this meeting.
+	 *
+	 * @return the external guest of this meeting
+	 */
+	@Override
+	public String getExternalGuest() {
+		return model.getExternalGuest();
+	}
+
+	/**
 	 * Returns the group ID of this meeting.
 	 *
 	 * @return the group ID of this meeting
@@ -254,6 +295,16 @@ public class MeetingWrapper
 	@Override
 	public String getHostedBy() {
 		return model.getHostedBy();
+	}
+
+	/**
+	 * Returns the internal guest of this meeting.
+	 *
+	 * @return the internal guest of this meeting
+	 */
+	@Override
+	public String getInternalGuest() {
+		return model.getInternalGuest();
 	}
 
 	/**
@@ -392,6 +443,16 @@ public class MeetingWrapper
 	}
 
 	/**
+	 * Sets the assets name of this meeting.
+	 *
+	 * @param assetsName the assets name of this meeting
+	 */
+	@Override
+	public void setAssetsName(String assetsName) {
+		model.setAssetsName(assetsName);
+	}
+
+	/**
 	 * Sets the company ID of this meeting.
 	 *
 	 * @param companyId the company ID of this meeting
@@ -442,6 +503,16 @@ public class MeetingWrapper
 	}
 
 	/**
+	 * Sets the external guest of this meeting.
+	 *
+	 * @param externalGuest the external guest of this meeting
+	 */
+	@Override
+	public void setExternalGuest(String externalGuest) {
+		model.setExternalGuest(externalGuest);
+	}
+
+	/**
 	 * Sets the group ID of this meeting.
 	 *
 	 * @param groupId the group ID of this meeting
@@ -459,6 +530,16 @@ public class MeetingWrapper
 	@Override
 	public void setHostedBy(String hostedBy) {
 		model.setHostedBy(hostedBy);
+	}
+
+	/**
+	 * Sets the internal guest of this meeting.
+	 *
+	 * @param internalGuest the internal guest of this meeting
+	 */
+	@Override
+	public void setInternalGuest(String internalGuest) {
+		model.setInternalGuest(internalGuest);
 	}
 
 	/**

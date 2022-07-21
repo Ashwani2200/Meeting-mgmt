@@ -353,4 +353,49 @@ public interface MeetingModel
 	 */
 	public void setMeetingRoom(String meetingRoom);
 
+	/**
+	 * Returns the assets name of this meeting.
+	 *
+	 * @return the assets name of this meeting
+	 */
+	@AutoEscape
+	public String getAssetsName();
+
+	/**
+	 * Sets the assets name of this meeting.
+	 *
+	 * @param assetsName the assets name of this meeting
+	 */
+	public void setAssetsName(String assetsName);
+
+	/**
+	 * Returns the internal guest of this meeting.
+	 *
+	 * @return the internal guest of this meeting
+	 */
+	@AutoEscape
+	public String getInternalGuest();
+
+	/**
+	 * Sets the internal guest of this meeting.
+	 *
+	 * @param internalGuest the internal guest of this meeting
+	 */
+	public void setInternalGuest(String internalGuest);
+
+	/**
+	 * Returns the external guest of this meeting.
+	 *
+	 * @return the external guest of this meeting
+	 */
+	@AutoEscape
+	public String getExternalGuest();
+
+	/**
+	 * Sets the external guest of this meeting.
+	 *
+	 * @param externalGuest the external guest of this meeting
+	 */
+	public void setExternalGuest(String externalGuest);
+
 }

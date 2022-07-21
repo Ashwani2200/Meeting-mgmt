@@ -48,5 +48,8 @@ create table meeting_Meeting (
 	hostedBy VARCHAR(75) null,
 	meetingType VARCHAR(75) null,
 	meetingLink VARCHAR(75) null,
-	meetingRoom VARCHAR(75) null
+	meetingRoom VARCHAR(75) null,
+	assetsName VARCHAR(75) null,
+	internalGuest VARCHAR(75) null,
+	externalGuest VARCHAR(75) null
 );

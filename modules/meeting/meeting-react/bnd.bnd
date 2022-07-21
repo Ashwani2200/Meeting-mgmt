@@ -1,0 +1,5 @@
+Bundle-Name: meeting-react
+Bundle-SymbolicName: com.adjecti.meeting.web
+Bundle-Version: 1.0.0
+Export-Package: com.adjecti.meeting.web.constants
+Web-ContextPath: /meeting-react

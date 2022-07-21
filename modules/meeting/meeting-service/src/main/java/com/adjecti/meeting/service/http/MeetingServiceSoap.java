@@ -14,9 +14,16 @@
 
 package com.adjecti.meeting.service.http;
 
+import com.adjecti.meeting.service.MeetingServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.adjecti.meeting.service.MeetingServiceUtil</code> service
+ * <code>MeetingServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,162 @@ package com.adjecti.meeting.service.http;
  */
 @Deprecated
 public class MeetingServiceSoap {
+
+	public static com.adjecti.meeting.model.MeetingSoap addMeeting(
+			String title, String dateAndTime, String location, String agenda,
+			String description, String createdBy, String hostedBy,
+			String meetingType, String meetingRoom, String meetingLink,
+			String assetsName, String internalGuest, String externalGuest)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Meeting returnValue =
+				MeetingServiceUtil.addMeeting(
+					title, dateAndTime, location, agenda, description,
+					createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
+					assetsName, internalGuest, externalGuest);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap updateMeeting(
+			String title, String dateAndTime, String location, String agenda,
+			String description, String createdBy, String hostedBy,
+			String meetingType, String meetingRoom, String meetingLink,
+			String assetsName, String internalGuest, String externalGuest)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Meeting returnValue =
+				MeetingServiceUtil.updateMeeting(
+					title, dateAndTime, location, agenda, description,
+					createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
+					assetsName, internalGuest, externalGuest);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap[] getAllMeeting()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.meeting.model.Meeting> returnValue =
+				MeetingServiceUtil.getAllMeeting();
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap deleteById(
+			long meetingId)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Meeting returnValue =
+				MeetingServiceUtil.deleteById(meetingId);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap getMeetingById(
+			long meetingId)
+		throws RemoteException {
+
+		try {
+			com.adjecti.meeting.model.Meeting returnValue =
+				MeetingServiceUtil.getMeetingById(meetingId);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap[] getMeetingCreatedBy(
+			String createdBy)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.meeting.model.Meeting> returnValue =
+				MeetingServiceUtil.getMeetingCreatedBy(createdBy);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap[] getMeetingHostedBy(
+			String hostedBy)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.meeting.model.Meeting> returnValue =
+				MeetingServiceUtil.getMeetingHostedBy(hostedBy);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.meeting.model.MeetingSoap[] getMeetingLocation(
+			String location)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.meeting.model.Meeting> returnValue =
+				MeetingServiceUtil.getMeetingLocation(location);
+
+			return com.adjecti.meeting.model.MeetingSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(MeetingServiceSoap.class);
+
 }
