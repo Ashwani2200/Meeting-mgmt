@@ -20,6 +20,7 @@ import com.adjecti.meeting.service.AssetLocalServiceUtil;
 import com.adjecti.meeting.service.persistence.AssetPersistence;
 import com.adjecti.meeting.service.persistence.EmployeePersistence;
 import com.adjecti.meeting.service.persistence.MeetingPersistence;
+import com.adjecti.meeting.service.persistence.RoomPersistence;
 
 import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
@@ -575,6 +576,9 @@ public abstract class AssetLocalServiceBaseImpl
 
 	@Reference
 	protected MeetingPersistence meetingPersistence;
+
+	@Reference
+	protected RoomPersistence roomPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

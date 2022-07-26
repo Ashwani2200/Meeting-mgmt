@@ -20,6 +20,7 @@ import com.adjecti.meeting.service.MeetingServiceUtil;
 import com.adjecti.meeting.service.persistence.AssetPersistence;
 import com.adjecti.meeting.service.persistence.EmployeePersistence;
 import com.adjecti.meeting.service.persistence.MeetingPersistence;
+import com.adjecti.meeting.service.persistence.RoomPersistence;
 
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.db.DB;
@@ -146,6 +147,9 @@ public abstract class MeetingServiceBaseImpl
 
 	@Reference
 	protected MeetingPersistence meetingPersistence;
+
+	@Reference
+	protected RoomPersistence roomPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

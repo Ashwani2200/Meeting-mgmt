@@ -62,11 +62,11 @@ public class MeetingServiceImpl extends MeetingServiceBaseImpl {
 				meetingType, meetingRoom, meetingLink, assetsName, internalGuest, externalGuest);
 	}
 
-	public Meeting updateMeeting(String title, String dateAndTime, String location, String agenda, String description,
+	public Meeting updateMeeting(long meetingId, String title, String dateAndTime, String location, String agenda, String description,
 			String createdBy, String hostedBy, String meetingType, String meetingRoom, String meetingLink,
 			String assetsName, String internalGuest, String externalGuest) {
 
-		return meetingLocalService.updateMeeting(title, dateAndTime, location, agenda, description, createdBy, hostedBy,
+		return meetingLocalService.updateMeeting(meetingId,title, dateAndTime, location, agenda, description, createdBy, hostedBy,
 				meetingType, meetingRoom, meetingLink, assetsName, internalGuest, externalGuest);
 	}
 

@@ -54,4 +54,18 @@
 		<field name="internalGuest" type="String" />
 		<field name="externalGuest" type="String" />
 	</model>
+	<model name="com.adjecti.meeting.model.Room">
+		<field name="uuid" type="String" />
+		<field name="roomId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="roomNo" type="String" />
+		<field name="floorNo" type="String" />
+		<field name="capacity" type="String" />
+		<field name="building" type="String" />
+	</model>
 </model-hints>

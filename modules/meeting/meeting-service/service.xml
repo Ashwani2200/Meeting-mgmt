@@ -196,4 +196,59 @@
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
 	</entity>
+	
+	
+	
+	<entity local-service="true" name="Room"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="roomId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="roomNo" type="String" />
+		<column name="floorNo" type="String" />
+		<column name="capacity" type="String" />
+		<column name="building" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="roomNo" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="roomNo" return-type="Room">
+			<finder-column name="roomNo" />
+		</finder>
+		
+		<finder name="floorNo" return-type="Collection">
+			<finder-column name="floorNo" />
+		</finder>
+		<finder name="capacity" return-type="Collection">
+			<finder-column name="capacity" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
 </service-builder>

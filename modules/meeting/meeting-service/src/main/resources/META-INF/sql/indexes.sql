@@ -17,3 +17,9 @@ create index IX_A4312346 on meeting_Meeting (location[$COLUMN_LENGTH:75$]);
 create index IX_1E6F964B on meeting_Meeting (title[$COLUMN_LENGTH:75$]);
 create index IX_CCD1D6D1 on meeting_Meeting (uuid_[$COLUMN_LENGTH:75$], companyId);
 create unique index IX_ABD3DD93 on meeting_Meeting (uuid_[$COLUMN_LENGTH:75$], groupId);
+
+create index IX_81633773 on meeting_Room (capacity[$COLUMN_LENGTH:75$]);
+create index IX_5D7BD7F8 on meeting_Room (floorNo[$COLUMN_LENGTH:75$]);
+create index IX_5F106FF5 on meeting_Room (roomNo[$COLUMN_LENGTH:75$]);
+create index IX_1228BB39 on meeting_Room (uuid_[$COLUMN_LENGTH:75$], companyId);
+create unique index IX_62E8BBFB on meeting_Room (uuid_[$COLUMN_LENGTH:75$], groupId);

@@ -89,18 +89,19 @@ public class MeetingServiceSoap {
 	}
 
 	public static com.adjecti.meeting.model.MeetingSoap updateMeeting(
-			String title, String dateAndTime, String location, String agenda,
-			String description, String createdBy, String hostedBy,
-			String meetingType, String meetingRoom, String meetingLink,
-			String assetsName, String internalGuest, String externalGuest)
+			long meetingId, String title, String dateAndTime, String location,
+			String agenda, String description, String createdBy,
+			String hostedBy, String meetingType, String meetingRoom,
+			String meetingLink, String assetsName, String internalGuest,
+			String externalGuest)
 		throws RemoteException {
 
 		try {
 			com.adjecti.meeting.model.Meeting returnValue =
 				MeetingServiceUtil.updateMeeting(
-					title, dateAndTime, location, agenda, description,
-					createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
-					assetsName, internalGuest, externalGuest);
+					meetingId, title, dateAndTime, location, agenda,
+					description, createdBy, hostedBy, meetingType, meetingRoom,
+					meetingLink, assetsName, internalGuest, externalGuest);
 
 			return com.adjecti.meeting.model.MeetingSoap.toSoapModel(
 				returnValue);

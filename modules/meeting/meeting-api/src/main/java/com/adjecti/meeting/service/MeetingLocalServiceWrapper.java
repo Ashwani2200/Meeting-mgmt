@@ -415,6 +415,19 @@ public class MeetingLocalServiceWrapper
 		return _meetingLocalService.getPersistedModel(primaryKeyObj);
 	}
 
+	@Override
+	public com.adjecti.meeting.model.Meeting updateMeeting(
+		long meetingId, String title, String dateAndTime, String location,
+		String agenda, String description, String createdBy, String hostedBy,
+		String meetingType, String meetingRoom, String meetingLink,
+		String assetsName, String internalGuest, String externalGuest) {
+
+		return _meetingLocalService.updateMeeting(
+			meetingId, title, dateAndTime, location, agenda, description,
+			createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
+			assetsName, internalGuest, externalGuest);
+	}
+
 	/**
 	 * Updates the meeting in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
@@ -430,19 +443,6 @@ public class MeetingLocalServiceWrapper
 		com.adjecti.meeting.model.Meeting meeting) {
 
 		return _meetingLocalService.updateMeeting(meeting);
-	}
-
-	@Override
-	public com.adjecti.meeting.model.Meeting updateMeeting(
-		String title, String dateAndTime, String location, String agenda,
-		String description, String createdBy, String hostedBy,
-		String meetingType, String meetingRoom, String meetingLink,
-		String assetsName, String internalGuest, String externalGuest) {
-
-		return _meetingLocalService.updateMeeting(
-			title, dateAndTime, location, agenda, description, createdBy,
-			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
-			internalGuest, externalGuest);
 	}
 
 	@Override

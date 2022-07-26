@@ -1,0 +1,49 @@
+/* .border {
+
+    border-style: none !important;
+    outline: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid black !important;
+    border-color: none;
+}
+
+input[type] {
+    width: 100%;
+    padding: 4px;
+    margin: 0%;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type]:focus {
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    
+    padding: 7px;
+
+}
+
+select[name] {
+    width: 100%;
+    padding: 4px;
+    margin: 0%;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+select[name]:focus {
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 7px;
+    outline: none;
+    box-shadow: none;
+}
+ */
+
+  

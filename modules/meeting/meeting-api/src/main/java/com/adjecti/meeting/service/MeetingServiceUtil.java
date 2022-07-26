@@ -87,15 +87,15 @@ public class MeetingServiceUtil {
 	}
 
 	public static Meeting updateMeeting(
-		String title, String dateAndTime, String location, String agenda,
-		String description, String createdBy, String hostedBy,
+		long meetingId, String title, String dateAndTime, String location,
+		String agenda, String description, String createdBy, String hostedBy,
 		String meetingType, String meetingRoom, String meetingLink,
 		String assetsName, String internalGuest, String externalGuest) {
 
 		return getService().updateMeeting(
-			title, dateAndTime, location, agenda, description, createdBy,
-			hostedBy, meetingType, meetingRoom, meetingLink, assetsName,
-			internalGuest, externalGuest);
+			meetingId, title, dateAndTime, location, agenda, description,
+			createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
+			assetsName, internalGuest, externalGuest);
 	}
 
 	public static MeetingService getService() {

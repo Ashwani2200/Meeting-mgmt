@@ -83,8 +83,8 @@ public interface MeetingService extends BaseService {
 	public String getOSGiServiceIdentifier();
 
 	public Meeting updateMeeting(
-		String title, String dateAndTime, String location, String agenda,
-		String description, String createdBy, String hostedBy,
+		long meetingId, String title, String dateAndTime, String location,
+		String agenda, String description, String createdBy, String hostedBy,
 		String meetingType, String meetingRoom, String meetingLink,
 		String assetsName, String internalGuest, String externalGuest);
 

@@ -91,11 +91,11 @@ public class MeetingServiceHttp {
 	}
 
 	public static com.adjecti.meeting.model.Meeting updateMeeting(
-		HttpPrincipal httpPrincipal, String title, String dateAndTime,
-		String location, String agenda, String description, String createdBy,
-		String hostedBy, String meetingType, String meetingRoom,
-		String meetingLink, String assetsName, String internalGuest,
-		String externalGuest) {
+		HttpPrincipal httpPrincipal, long meetingId, String title,
+		String dateAndTime, String location, String agenda, String description,
+		String createdBy, String hostedBy, String meetingType,
+		String meetingRoom, String meetingLink, String assetsName,
+		String internalGuest, String externalGuest) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -103,9 +103,9 @@ public class MeetingServiceHttp {
 				_updateMeetingParameterTypes1);
 
 			MethodHandler methodHandler = new MethodHandler(
-				methodKey, title, dateAndTime, location, agenda, description,
-				createdBy, hostedBy, meetingType, meetingRoom, meetingLink,
-				assetsName, internalGuest, externalGuest);
+				methodKey, meetingId, title, dateAndTime, location, agenda,
+				description, createdBy, hostedBy, meetingType, meetingRoom,
+				meetingLink, assetsName, internalGuest, externalGuest);
 
 			Object returnObj = null;
 
@@ -344,7 +344,7 @@ public class MeetingServiceHttp {
 	};
 	private static final Class<?>[] _updateMeetingParameterTypes1 =
 		new Class[] {
-			String.class, String.class, String.class, String.class,
+			long.class, String.class, String.class, String.class, String.class,
 			String.class, String.class, String.class, String.class,
 			String.class, String.class, String.class, String.class, String.class
 		};

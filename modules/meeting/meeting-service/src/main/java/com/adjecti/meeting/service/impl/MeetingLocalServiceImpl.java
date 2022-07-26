@@ -80,7 +80,7 @@ public class MeetingLocalServiceImpl extends MeetingLocalServiceBaseImpl {
 		return meetingLocalService.addMeeting(meeting);
 	}
 
-	public Meeting updateMeeting(String title, String dateAndTime, String location, String agenda, String description,
+	public Meeting updateMeeting(long meetingId,String title, String dateAndTime, String location, String agenda, String description,
 			String createdBy, String hostedBy, String meetingType, String meetingRoom, String meetingLink,
 			String assetsName, String internalGuest, String externalGuest) {
 

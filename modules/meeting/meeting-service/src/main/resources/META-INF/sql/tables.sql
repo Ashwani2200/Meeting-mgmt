@@ -53,3 +53,18 @@ create table meeting_Meeting (
 	internalGuest VARCHAR(75) null,
 	externalGuest VARCHAR(75) null
 );
+
+create table meeting_Room (
+	uuid_ VARCHAR(75) null,
+	roomId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	roomNo VARCHAR(75) null,
+	floorNo VARCHAR(75) null,
+	capacity VARCHAR(75) null,
+	building VARCHAR(75) null
+);
