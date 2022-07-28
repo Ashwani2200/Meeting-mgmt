@@ -13,20 +13,20 @@ const Navbar = () => {
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <NavLink className="navbar-brand" to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/contact">Meeting</NavLink>
+                    <NavLink className="navbar-brand" to="/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/meeting">Meeting</NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link active" aria-current="page" to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/contact">Home</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to="/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/metting">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/location">Meeting Location</NavLink>
+                                <NavLink className="nav-link" to="/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/location">Meeting Location</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset">Asset</NavLink>
+                                <NavLink className="nav-link" to="/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/asset">Asset</NavLink>
                             </li>
 
                             {/* <li className="nav-item dropdown">
@@ -41,16 +41,16 @@ const Navbar = () => {
                             </li> */}
 
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/room">Meeting Room</NavLink>
+                                <NavLink className="nav-link" to="/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/room">Meeting Room</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/roomList'>Room</NavLink>
+                                <NavLink className="nav-link" to='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/roomList'>Room</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset'>Asset</NavLink>
+                                <NavLink className="nav-link" to='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/asset'>Asset</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/view-asset'>View</NavLink>
+                                <NavLink className="nav-link" to='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/view-asset'>View</NavLink>
                             </li>
                         </ul>
                         <form className="d-flex">

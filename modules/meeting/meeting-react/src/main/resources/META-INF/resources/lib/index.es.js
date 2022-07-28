@@ -19,14 +19,14 @@ const App = () => {
 				<Navbar></Navbar>
 				<Routes>
 
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/contact' element={<Meeting />}></Route>
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/location' element={<Location />}></Route>
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset' element={<Asset />}></Route>
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/room' element={<Room />}></Route>
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/roomList' element={<RoomList />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/meeting' element={<Meeting />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/location' element={<Location />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/asset' element={<Asset />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/room' element={<Room />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/roomList' element={<RoomList />}></Route>
 
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset' element={<Asset />}></Route>
-					<Route exact path='/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/view-asset' element={<ViewAsset />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/asset' element={<Asset />}></Route>
+					<Route exact path='/web/meeting-management/meeting/-/meetingreact_INSTANCE_I1FnzD7T9hzh/view-asset' element={<ViewAsset />}></Route>
 				</Routes>
 			</BrowserRouter>
 			<Outlet />

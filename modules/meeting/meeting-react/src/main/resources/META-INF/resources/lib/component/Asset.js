@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const Asset = () => {
     const [name, setName] = useState("");
     const [assetModel, setAssetModel] = useState("");
@@ -81,6 +82,7 @@ const Asset = () => {
                     </div>
                 </div >
             </form>
+			
         </div >
     );
 

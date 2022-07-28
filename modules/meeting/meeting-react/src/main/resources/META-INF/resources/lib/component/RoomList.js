@@ -7,6 +7,9 @@ import Modal from "react-modal";
 const RoomList = () => {
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [updateRoom, setUpdateRoom] = useState([]);
+    //  const [assettOption, setAssettOption] = useState([]);
+    const [room, setRoom] = useState([]);
     const customStyles = {
         content: {
             top: '50%',
@@ -20,11 +23,18 @@ const RoomList = () => {
         },
     };
 
-    const [assettOption, setAssettOption] = useState([]);
-    const [room, setRoom] = useState([]);
+   
 
+    function updateRoom(data){
+        // setUpdateRoom(data)
+        console.log("fuck man chal gya"+data)
+        // openModal();
+    }
     function openModal() {
+
         setIsOpen(true);
+
+
     }
 
     function afterOpenModal() {
@@ -98,7 +108,7 @@ const RoomList = () => {
                                                     <td>{data.floorNo}</td>
                                                     <td>{data.capacity}</td>
                                                     <td>
-                                                        <span className="btn btn-sm btn-outline-success mr-2" onClick={openModal} ><GrUpdate style={{ color: 'black', width: 50 }} />Update</span>
+                                                        <span className="btn btn-sm btn-outline-success mr-2" onClick={() => updateRoom(data)} ><GrUpdate style={{ color: 'black', width: 50 }} />Update</span>
                                                         <span className="btn btn-sm btn-outline-danger mr-2"> <BsFillTrashFill style={{ color: 'black', width: 50 }} />Delete</span>
 
 
@@ -125,25 +135,27 @@ const RoomList = () => {
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update Meeting Room</h2>
 
-                <div>I am a modal</div>
+                <div>I am Immortal</div>
                 <form id='formId'>
                     <div className="card-body border-color">
 
 
                         <div className='row'>
                             <div className='col'>
-
+                                {
+                                    console.log(updateRoom)
+                                }
                                 <div className="mb-3">
                                     <label for="floorNo" className="form-label">Floor No.</label>
-                                    <input type="text" className="form-control" id="floorNo" />
+                                    <input type="text" value={updateRoom.floorNo} className="form-control" id="floorNo" />
                                 </div>
                             </div>
                             <div className='col'>
                                 <div className="mb-3">
                                     <label for="roomNo" className="form-label">Room No.</label>
-                                    <input type="text" className=" form-control" id="roomNo" />
+                                    <input type="text" value={updateRoom.roomNo} className=" form-control" id="roomNo" />
                                 </div>
                             </div>
 
@@ -152,17 +164,20 @@ const RoomList = () => {
                             <div className='col'>
                                 <div className="mb-3">
                                     <label for="capacity" className="form-label">Capacity</label>
-                                    <input type="text" className=" form-control" id="capacity" />
+                                    <input type="text" value={updateRoom.capacity} className=" form-control" id="capacity" />
                                 </div>
                             </div>
                             <div className='col'>
                                 <div className="mb-3">
                                     <label for="Building" className="form-label">Building</label>
-                                    <input type="text" className="form-control" id="Building" />
+                                    <input type="text" value={updateRoom.building} className="form-control" id="Building" />
                                 </div>
                             </div>
+
+                        </div>
+                        <div className="mb-3 text-center">
                             <span className="btn btn-sm btn-outline-success mr-2" onClick={openModal} ><GrUpdate style={{ color: 'black', width: 50 }} />Update</span>
-                            <button className="btn btn-outline-danger" onClick={closeModal}>close</button>
+                            <button className="btn btn-sm btn-outline-danger" onClick={closeModal}>close</button>
                         </div>
                     </div>
                     <hr />

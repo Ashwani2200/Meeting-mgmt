@@ -5,24 +5,36 @@ import { Router, Link, useNavigate } from 'react-router-dom';
 
 const ViewAsset = () => {
 
-	const [asset, setAsset] = useState([]);
+	const [assets, setAsset] = useState([]);
+
+	const editAsset = () => {
+		alert('edit');
+	}
+
+	const deleteAsset = (id) => {
+		alert(id);
+		axios.delete(
+			` http://localhost:8080/api/jsonws/meeting.asset/delete-asset/asset-id/${id}/?p_auth=` + Liferay.authToken
+		)
+			.then((res) => {
+				console.log("asset data id", res);
+				getAsset()
+			})
+	}
+
+	const getAsset = () => {
+		axios.get(
+			` http://localhost:8080/api/jsonws/meeting.asset/get-all-asset/?p_auth=` + Liferay.authToken
+		)
+			.then((res) => {
+				console.log("asset data", res);
+				setAsset(res.data);
+			})
+	}
 
 
 	useEffect(() => {
-
-		axios.get(
-			` http://localhost:8080/api/jsonws/meeting.asset/get-all-asset/?p_auth=` + Liferay.authToken
-		).then((res) => {
-			let assetArr = [];
-			res.data.forEach(element => {
-				console.log("======>" + element.assetModel);
-				assetArr.push(element)
-			});
-
-			console.log("======" + assetArr);
-			setAsset(assetArr);
-		})
-
+		getAsset()
 	}, [])
 
 	return (
@@ -32,42 +44,40 @@ const ViewAsset = () => {
 			}
 
 			<div className='container'>
-				 <Link to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset" className="btn btn-primary">hello</Link>
-				
-					{/* <Link to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset" >
-						<Button   className="btn btn-outline-success">Add Asset</Button>
-					</Link> */}
-				
+				<Link to="/web/guest/contact/-/meetingreact_INSTANCE_lvkRDTBlFv1M/asset" className="btn btn-primary">hello</Link>
+
 				<h4 className='text-center mt-4 pt-4'>Asset List</h4>
 				<hr />
 				<br />
 				<table className="table">
 					<thead>
 						<tr >
-							<th scope="col">#</th>
 							<th scope="col">Name</th>
-							<th scope="col">Serial No</th>
-							<th scope="col">Asset Model</th>
-							<th scope="col">Purchase Date</th>
-							<th scope="col">Status</th>
-							<th scope="col">Room Assigned</th>
+                            <th scope="col">Serial No</th>
+                            <th scope="col">Asset Model</th>
+                            <th scope="col">Purchase Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Room Assigned</th>
+                            <th scope="col">Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						{
-							// setAsset ((item) =>
-							asset.map((item, i) =>
-
-								<tr key={item.id}>
-									<th scope="row">{i + 1}</th>
-									<td>{item.assetId}</td>
-									<td>{item.assetModel}</td>
-									<td>{item.companyId}</td>
-									<td>{item.createDate}</td>
-									<td>{item.name}</td>
-									<td>{item.purchaseDate}</td>
-								</tr>
-							)
+							 assets.map((asset, i) =>
+                                <tr key={i}>
+                                    <td>{asset.assetId}</td>
+                                    <td>{asset.name}</td>
+                                    <td>{asset.serialNo}</td>
+                                    <td>{asset.assetModel}</td>
+                                    <td>{asset.purchaseDate}</td>
+                                    <td>{asset.status ? 'True' : 'False'}</td>
+                                    <td>{asset.roomAssigned ? 'True' : 'False'}</td>
+                                    <td>
+                                        <button className='btn btn-sm btn-outline-info' onClick={editAsset}>Edit Asset</button>
+                                        <button className='btn btn-sm btn-outline-danger' onClick={() => deleteAsset(asset.assetId)}>Delete Asset</button>
+                                    </td>
+                                </tr>
+                            )
 						}
 					</tbody>
 				</table>
